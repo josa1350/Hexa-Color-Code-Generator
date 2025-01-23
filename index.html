@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generate color</title>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.2rem;
+      }
+      .container {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      .container::-webkit-scrollbar {
+        display: hidden;
+      }
+      .btn {
+        background-color: #e4659b;
+        width: 300px;
+        height: 300px;
+        border-radius: 25px;
+        box-shadow: 20px 20px 25px black;
+      }
+      button {
+        background-color: fuchsia;
+        padding: 15px;
+        border: 0;
+        outline: 0;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="btn">
+        <p>Hex -color code is :</p>
+        <p id="hexCode"><i>#00000</i></p>
+        <button onclick="GenerateColor()">Generate Color</button>
+      </div>
+    </div>
+    <script>
+      function GenerateColor() {
+        const Color = [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+        ];
+        let hexCode = "";
+        for (let i = 0; i < 6; i++) {
+          randomColor = Math.floor(Math.random() * 16);
+          hexCode += Color[randomColor];
+        }
+        document.getElementById("hexCode").innerHTML = `# ${hexCode}`;
+        document.getElementsByTagName("body")[0].style.background =
+          "#" + hexCode;
+      }
+    </script>
+  </body>
+</html>
